@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SwipeableMessages</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="loading">Loading</string>
+    <string name="from">From</string>
+    <string name="noMessages">There are no text messages</string>
+    <string name="undo">Undo</string>
+    <string name="archived">Deleted</string>
+</resources>
