@@ -65,6 +65,13 @@ public class SmsAdapter extends ArrayAdapter<SmsHolder> implements UndoAdapter {
         return convertView;
     }
 
+
+    static class ViewHolder {
+        TextView address;
+        TextView date;
+        TextView message;
+    }
+
     private String getDate(SmsHolder sms) {
         final Date date = sms.getDate();
         if (isToday(date)) {
@@ -115,11 +122,5 @@ public class SmsAdapter extends ArrayAdapter<SmsHolder> implements UndoAdapter {
     @Override
     public View getUndoClickView(@NonNull View view) {
         return view.findViewById(R.id.undoButton);
-    }
-
-    static class ViewHolder {
-        TextView address;
-        TextView date;
-        TextView message;
     }
 }

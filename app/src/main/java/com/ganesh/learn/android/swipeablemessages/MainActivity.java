@@ -11,9 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
-import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SimpleSwipeUndoAdapter;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.TimedUndoAdapter;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -47,11 +46,11 @@ public class MainActivity extends ActionBarActivity {
     private void setUpSmsList() {
         smsList = (ListView) findViewById(R.id.messages);
 
-        SimpleSwipeUndoAdapter undoAdapter = new SimpleSwipeUndoAdapter(adapter, this, new SmsDeleteCallback());
+//        SimpleSwipeUndoAdapter undoAdapter = new SimpleSwipeUndoAdapter(adapter, this, new SmsDeleteCallback());
+        TimedUndoAdapter undoAdapter = new TimedUndoAdapter(adapter,this,new SmsDeleteCallback());
 
-        SwingBottomInAnimationAdapter animationAdapter = new SwingBottomInAnimationAdapter(undoAdapter);
-        animationAdapter.setAbsListView(smsList);
-        smsList.setAdapter(animationAdapter);
+        undoAdapter.setAbsListView(smsList);
+        smsList.setAdapter(undoAdapter);
 
         TextView emptyTextView = new TextView(this);
         emptyTextView.setText(R.string.noMessages);
